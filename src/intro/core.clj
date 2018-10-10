@@ -11,10 +11,6 @@
   [x y]
   (/ (+ x y) 2))
 
-(defn mean-square
-  [x y]
-  (average (square x) (square y)))
-
 (defn abs
   [x]
   (cond
