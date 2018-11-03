@@ -21,6 +21,7 @@
   [guess x]
   (average guess (/ x guess)))
 
+
 (defn good-enough?
   [guess x]
   (< (abs (- (square guess) x)) 0.001))
