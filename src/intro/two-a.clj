@@ -66,12 +66,12 @@
   [f start]
   (let [tolerance 0.00001]
    (letfn [(close-enuf? [u v]
-                        (< (abs (- u v)
-                             tolerance)))
+             (< (abs (- u v)
+                  tolerance)))
            (iter [old new]
-                 (if (close-enuf? old new)
-                   new
-                   (iter new (f new))))]
+             (if (close-enuf? old new)
+               new
+               (iter new (f new))))]
     iter start (f start))))
 
 ;; Heron's square root method 
