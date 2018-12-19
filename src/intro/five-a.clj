@@ -10,12 +10,14 @@
 
 ;; Factorial function using mutable state
 ;; Substitution model does not work here
-;; TODO: This does not work correctly for now - throws an error when called
+;; do executes each of its arguments in sequence and returns the result of the last one.
 (defn fact-mutable [n]
   (let [count (atom 1) acc (atom 1)]
     (letfn [(loop []
               (if (> @count n) @acc
-                  ((swap! acc (fn [tmp-acc] (* tmp-acc @count)))
-                   (swap! count inc)
-                   (loop))))]
+                  (do 
+                    (swap! acc (fn [tmp-acc] (* tmp-acc @count)))
+                    (swap! count inc)
+                    (loop))))]
       (loop))))
+
